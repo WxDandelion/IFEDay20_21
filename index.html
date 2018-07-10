@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #face {
+            width: 480px;
+            height: 480px;
+        }
+    </style>
+</head>
+<body>
+<div id="face"></div>
+</body>
+<script>
+    window.onload = function() {
+        var y = 0 ;
+        var flag = 1;
+        var ele = document.getElementById("face");
+        ele.style.backgroundImage = 'url(face.jpg)';
+        var interval = setInterval(run,80);
+        function run() {
+            ele.style.backgroundPosition = "0px " + y +"px";
+            if(flag === 1) {
+                y = y - 480;
+                if (y <= -8160) {
+                    flag = 0;
+                    y = y + 480;
+                }
+            }
+            else if(flag === 0){
+                y = y + 480;
+                if(y > 0){
+                    flag = 1;
+                    y = y -480;
+                }
+            }
+        }
+    }
+</script>
+</html>
